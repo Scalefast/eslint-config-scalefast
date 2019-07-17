@@ -14,6 +14,7 @@ module.exports = {
     'plugins': [
         'promise'
     ],
+    'extends': 'eslint:recommended',
     'globals': {
         'document': false,
         'window': false,
@@ -67,7 +68,6 @@ module.exports = {
             'error',
             'last'
         ],
-        'constructor-super': 'error',
         'curly': [
             'error',
             'multi-line'
@@ -189,14 +189,8 @@ module.exports = {
         ],
         'no-floating-decimal': 'error',
         'no-func-assign': 'error',
-        'no-global-assign': 'error',
         'no-implied-eval': 'error',
-        'no-inner-declarations': [
-            'error',
-            'functions'
-        ],
         'no-invalid-regexp': 'error',
-        'no-irregular-whitespace': 'error',
         'no-iterator': 'error',
         'no-label-var': 'error',
         'no-labels': [
@@ -233,7 +227,6 @@ module.exports = {
                 'allowSamePrecedence': true
             }
         ],
-        'no-mixed-spaces-and-tabs': 'error',
         'no-multi-spaces': 'error',
         'no-multi-str': 'error',
         'no-multiple-empty-lines': [
@@ -248,33 +241,21 @@ module.exports = {
         'no-new-func': 'error',
         'no-new-object': 'error',
         'no-new-require': 'error',
-        'no-new-symbol': 'error',
         'no-new-wrappers': 'error',
-        'no-obj-calls': 'error',
-        'no-octal': 'error',
         'no-octal-escape': 'error',
         'no-path-concat': 'error',
         'no-proto': 'error',
-        'no-redeclare': 'error',
-        'no-regex-spaces': 'error',
         'no-return-assign': [
             'error',
             'except-parens'
         ],
         'no-return-await': 'error',
-        'no-self-assign': 'error',
         'no-self-compare': 'error',
         'no-sequences': 'error',
-        'no-shadow-restricted-names': 'error',
-        'no-sparse-arrays': 'error',
         'no-tabs': 'error',
         'no-template-curly-in-string': 'error',
-        'no-this-before-super': 'error',
         'no-throw-literal': 'error',
-        'no-trailing-spaces': 'error',
-        'no-undef': 'error',
         'no-undef-init': 'error',
-        'no-unexpected-multiline': 'error',
         'no-unmodified-loop-condition': 'error',
         'no-unneeded-ternary': [
             'error',
@@ -282,9 +263,6 @@ module.exports = {
                 'defaultAssignment': false
             }
         ],
-        'no-unreachable': 'error',
-        'no-unsafe-finally': 'error',
-        'no-unsafe-negation': 'error',
         'no-unused-expressions': [
             'error',
             {
@@ -312,11 +290,9 @@ module.exports = {
         'no-useless-call': 'error',
         'no-useless-computed-key': 'error',
         'no-useless-constructor': 'error',
-        'no-useless-escape': 'error',
         'no-useless-rename': 'error',
         'no-useless-return': 'error',
         'no-whitespace-before-property': 'error',
-        'no-with': 'error',
         'object-curly-spacing': [
             'error',
             'always',
@@ -355,14 +331,6 @@ module.exports = {
             }
         ],
         'prefer-promise-reject-errors': 'error',
-        'quotes': [
-            'error',
-            'single',
-            {
-                'avoidEscape': true,
-                'allowTemplateLiterals': true
-            }
-        ],
         'rest-spread-spacing': [
             'error',
             'never'
@@ -439,13 +407,6 @@ module.exports = {
         'unicode-bom': [
             'error',
             'never'
-        ],
-        'use-isnan': 'error',
-        'valid-typeof': [
-            'error',
-            {
-                'requireStringLiterals': true
-            }
         ],
         'wrap-iife': [
             'error',

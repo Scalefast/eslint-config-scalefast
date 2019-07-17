@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-scalefast",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Eslint config we use and extend at Scalefast as a shareable configuration https://eslint.org/docs/developer-guide/shareable-configs",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,9 @@
     "eslint-plugin-promise": ">= 4.0"
   },
   "author": "Mario Marinero <mario.marinero@scalefast.com>",
+  "contributors": [
+    "Ana Arriaga <ana.arriaga@scalefast.com>"
+  ],
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/scalefast/eslint-config-scalefast/issues"
