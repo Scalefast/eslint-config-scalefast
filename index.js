@@ -255,6 +255,7 @@ module.exports = {
         'no-tabs': 'error',
         'no-template-curly-in-string': 'error',
         'no-throw-literal': 'error',
+        'no-trailing-spaces': 'error',
         'no-undef-init': 'error',
         'no-unmodified-loop-condition': 'error',
         'no-unneeded-ternary': [
