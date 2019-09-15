@@ -22,25 +22,10 @@ module.exports = {
         '$': false
     },
     'rules': {
-        'accessor-pairs': 'error',
-        'arrow-spacing': [
-            'error',
-            {
-                'before': true,
-                'after': true
-            }
-        ],
-        'block-spacing': [
-            'error',
-            'always'
-        ],
-        'brace-style': [
-            'error',
-            '1tbs',
-            {
-                'allowSingleLine': true
-            }
-        ],
+        'accessor-pairs' : 'error',
+        'arrow-spacing' : "error",
+        'block-spacing' : "error",
+        'brace-style' : "error",
         'camelcase': [
             'error',
             {
@@ -68,10 +53,7 @@ module.exports = {
             'error',
             'last'
         ],
-        'curly': [
-            'error',
-            'multi-line'
-        ],
+        'curly' : "error",
         'dot-location': [
             'error',
             'property'
@@ -132,7 +114,7 @@ module.exports = {
         'key-spacing': [
             'error',
             {
-                'beforeColon': false,
+                'beforeColon': true,
                 'afterColon': true
             }
         ],
@@ -153,44 +135,15 @@ module.exports = {
         'new-parens': 'error',
         'no-array-constructor': 'error',
         'no-caller': 'error',
-        'no-class-assign': 'error',
-        'no-compare-neg-zero': 'error',
-        'no-cond-assign': 'error',
-        'no-const-assign': 'error',
-        'no-constant-condition': [
-            'error',
-            {
-                'checkLoops': false
-            }
-        ],
-        'no-control-regex': 'error',
-        'no-debugger': 'error',
-        'no-delete-var': 'error',
-        'no-dupe-args': 'error',
-        'no-dupe-class-members': 'error',
-        'no-dupe-keys': 'error',
-        'no-duplicate-case': 'error',
-        'no-empty-character-class': 'error',
-        'no-empty-pattern': 'error',
         'no-eval': 'error',
-        'no-ex-assign': 'error',
         'no-extend-native': 'error',
         'no-extra-bind': 'error',
-        'no-extra-boolean-cast': 'error',
         'no-extra-parens': [
             'error',
             'functions'
         ],
-        'no-fallthrough': [
-            'error',
-            {
-                'commentPattern': 'break[\\s\\w]*omitted'
-            }
-        ],
         'no-floating-decimal': 'error',
-        'no-func-assign': 'error',
         'no-implied-eval': 'error',
-        'no-invalid-regexp': 'error',
         'no-iterator': 'error',
         'no-label-var': 'error',
         'no-labels': [
@@ -270,14 +223,6 @@ module.exports = {
                 'allowShortCircuit': true,
                 'allowTernary': true,
                 'allowTaggedTemplates': true
-            }
-        ],
-        'no-unused-vars': [
-            'error',
-            {
-                'vars': 'all',
-                'args': 'none',
-                'ignoreRestSiblings': true
             }
         ],
         'no-use-before-define': [
