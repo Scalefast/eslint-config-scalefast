@@ -146,13 +146,7 @@ module.exports = {
         'no-implied-eval': 'error',
         'no-iterator': 'error',
         'no-label-var': 'error',
-        'no-labels': [
-            'error',
-            {
-                'allowLoop': false,
-                'allowSwitch': false
-            }
-        ],
+        'no-labels': "error",
         'no-lone-blocks': 'error',
         'no-mixed-operators': [
             'error',
@@ -196,7 +190,6 @@ module.exports = {
         'no-new-require': 'error',
         'no-new-wrappers': 'error',
         'no-octal-escape': 'error',
-        'no-path-concat': 'error',
         'no-proto': 'error',
         'no-return-assign': [
             'error',

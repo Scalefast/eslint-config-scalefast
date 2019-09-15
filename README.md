@@ -375,19 +375,293 @@ Disallows unnecessary parentheses only around function expressions.
 // ✗ avoid
 ((function foo() {}))();
 var y = (function () {return 1;});
-
-// ✓ ok
-(0).toString();
-(Object.prototype.toString.call());
-({}.toString.call());
-(function(){} ? a() : b());
-(/^a$/).test(x);
-a = (b * c);
-(a * b) + c;
-typeof (a);
 ```
 
 #### [no-floating-decimal](https://eslint.org/docs/rules/no-floating-decimal)
+Float values in JavaScript contain a decimal point, and there is no requirement that the decimal point be preceded or followed by a number.
+
+```js
+// ✗ avoid
+var num = .5;
+var num = 2.;
+var num = -.7;
+
+// ✓ ok
+var num = 0.5;
+var num = 2.0;
+var num = -0.7;
+```
+
+#### [no-implied-eval](https://eslint.org/docs/rules/no-implied-eval)
+This rule aims to eliminate implied eval() through the use of setTimeout(), setInterval() or execScript(). As such, it will warn when either function is used with a string as the first argument.
+
+```js
+// ✗ avoid
+setTimeout("alert('Hi!');", 100);
+window.setTimeout("count = 5", 10);
+
+// ✓ ok
+setTimeout(function() {
+    alert("Hi!");
+}, 100);
+```
+
+#### [no-iterator](https://eslint.org/docs/rules/no-iterator)
+This rule is aimed at preventing errors that may arise from using the __iterator__ property, which is not implemented in several browsers. As such, it will warn whenever it encounters the __iterator__ property.
+
+```js
+// ✗ avoid
+foo.__iterator__ = function () {};
+
+// ✓ ok
+var __iterator__ = foo;
+```
+
+#### [no-label-var](https://eslint.org/docs/rules/no-label-var)
+This rule aims to create clearer code by disallowing the bad practice of creating a label that shares a name with a variable that is in scope.
+
+```js
+// ✗ avoid
+var x = foo;
+function bar() {
+x:
+  for (;;) {
+    break x;
+  }
+}
+
+// ✓ ok
+function foo() {
+  var q = t;
+}
+
+function bar() {
+q:
+  for(;;) {
+    break q;
+  }
+}
+```
+
+#### [no-labels](https://eslint.org/docs/rules/no-labels)
+This rule aims to eliminate the use of labeled statements in JavaScript. It will warn whenever a labeled statement is encountered and whenever break or continue are used with a label.
+
+```js
+// ✗ avoid
+label:
+    while(true) {
+        break label;
+    }
+
+// ✓ ok
+while (true) {
+    break;
+}
+```
+
+#### [no-lone-blocks](https://eslint.org/docs/rules/no-lone-blocks)
+This rule aims to eliminate unnecessary and potentially confusing blocks at the top level of a script or within other blocks.
+
+```js
+// ✗ avoid
+if (foo) {
+    bar();
+    {
+        baz();
+    }
+}
+
+// ✓ ok
+if (foo) {
+    if (bar) {
+        baz();
+    }
+}
+```
+
+#### [no-mixed-operators](https://eslint.org/docs/rules/no-mixed-operators)
+
+#### [no-multi-spaces](https://eslint.org/docs/rules/no-multi-spaces)
+Multiple spaces in a row that are not used for indentation are typically mistakes.
+
+```js
+// ✗ avoid
+var a =  1;
+if(foo   === "bar") {}
+
+// ✓ ok
+var a = 1;
+if(foo === "bar") {}
+```
+
+#### [no-multi-str](https://eslint.org/docs/rules/no-multi-str)
+It’s possible to create multiline strings in JavaScript by using a slash before a newline.
+
+```js
+// ✗ avoid
+var x = "Line 1 \
+         Line 2";
+
+// ✓ ok
+var x = "Line 1\n" +
+        "Line 2";
+```
+
+#### [no-multiple-empty-lines](https://eslint.org/docs/rules/no-multiple-empty-lines)
+Enforces a maximum number of consecutive empty lines in some part of the file or at the end of the file.
+
+```js
+// ✗ avoid
+var foo = 5;
+
+
+var bar = 3;
+
+// ✓ ok
+var foo = 5;
+var bar = 3;
+```
+
+#### [no-negated-in-lhs](https://eslint.org/docs/rules/no-negated-in-lhs)
+This rule disallows negating the left operand in in expressions.
+
+```js
+// ✗ avoid
+if(!key in object) {
+
+}
+
+// ✓ ok
+if(!(key in object)) {
+    // key is not in object
+}
+```
+
+#### [no-new](https://eslint.org/docs/rules/no-new)
+This rule is aimed at maintaining consistency and convention by disallowing constructor calls using the new keyword that do not assign the resulting object to a variable.
+
+```js
+// ✗ avoid
+new Thing();
+
+// ✓ ok
+var thing = new Thing();
+Thing();
+```
+
+#### [no-new-func](https://eslint.org/docs/rules/no-new-func)
+It’s possible to create functions in JavaScript using the Function constructor.
+
+```js
+// ✗ avoid
+var x = new Function("a", "b", "return a + b");
+
+// ✓ ok
+var x = function (a, b) {
+    return a + b;
+};
+```
+
+#### [no-new-object](https://eslint.org/docs/rules/no-new-object)
+The Object constructor is used to create new generic objects in JavaScript.
+
+```js
+// ✗ avoid
+var myObject = new Object();
+
+// ✓ ok
+var myObject = new CustomObject();
+var myObject = {};
+```
+
+#### [no-new-require](https://eslint.org/docs/rules/no-new-require)
+This rule aims to eliminate use of the new require expression.
+
+```js
+// ✗ avoid
+var appHeader = new require('app-header');
+// ✓ ok
+var appHeader = require('app-header');
+```
+
+#### [no-new-wrappers](https://eslint.org/docs/rules/no-new-wrappers)
+This rule aims to eliminate the use of String, Number, and Boolean with the new operator. As such, it warns whenever it sees new String, new Number, or new Boolean.
+
+```js
+// ✗ avoid
+var stringObject = new String("Hello world");
+// ✓ ok
+var stringObject = String("Hello world");
+```
+
+#### [no-octal-escape](https://eslint.org/docs/rules/no-octal-escape)
+This rule disallows octal escape sequences in string literals.
+
+```js
+// ✗ avoid
+var foo = "Copyright \251";
+
+// ✓ ok
+var foo = "Copyright \u00A9";   // unicode
+var foo = "Copyright \xA9";     // hexadecimal
+```
+
+#### [no-proto](https://eslint.org/docs/rules/no-proto)
+When an object is created with the new operator, __proto__ is set to the original “prototype” property of the object’s constructor function. Object.getPrototypeOf is the preferred method of getting the object’s prototype. To change an object’s prototype, use Object.setPrototypeOf.
+
+```js
+// ✗ avoid
+var a = obj.__proto__;
+obj.__proto__ = b;
+
+// ✓ ok
+var a = Object.getPrototypeOf(obj);
+Object.setPrototypeOf(obj, b);
+```
+
+#### [no-return-assign](https://eslint.org/docs/rules/no-return-assign)
+Disallow assignments unless they are enclosed in parentheses.
+
+```js
+// ✗ avoid
+function doSomething() {
+    return foo = bar + 2;
+}
+
+// ✓ ok
+function doSomething() {
+    return foo == bar + 2;
+}
+function doSomething() {
+    return foo === bar + 2;
+}
+```
+
+#### [no-return-await](https://eslint.org/docs/rules/no-return-await)
+This rule aims to prevent a likely common performance hazard due to a lack of understanding of the semantics of async function.
+
+```js
+// ✗ avoid
+async function foo() {
+    return await bar();
+}
+// ✓ ok
+async function foo() {
+    await bar();
+    return;
+}
+```
+
+#### [no-self-compare](https://eslint.org/docs/rules/no-self-compare)
+This error is raised to highlight a potentially confusing and potentially pointless piece of code. There are almost no situations in which you would need to compare something to itself.
+
+```js
+// ✗ avoid
+var x = 10;
+if (x === x) {
+    x = 20;
+}
+```
 
 
 All the rules in this package have 2 purposes.
