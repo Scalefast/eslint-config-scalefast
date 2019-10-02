@@ -259,12 +259,12 @@ Add space between colon and value in key value pairs.
 
 ```js
 // ✗ avoid
-var obj = { "foo": 42 };
+var obj = { "foo" : 42 };
 var obj = { "foo" :42 };
 var obj = { "foo":42 };
 
 // ✓ ok
-var obj = { "foo" : 42 };
+var obj = { "foo": 42 };
 ```
 
 #### [keywords-spacing](https://eslint.org/docs/rules/keywords-spacing)
