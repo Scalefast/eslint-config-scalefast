@@ -114,7 +114,7 @@ module.exports = {
         'key-spacing': [
             'error',
             {
-                'beforeColon': true,
+                'beforeColon': false,
                 'afterColon': true
             }
         ],
