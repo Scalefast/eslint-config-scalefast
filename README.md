@@ -210,25 +210,6 @@ var anonymous = function* () {};
 var shorthand = { *generator() {} };
 ```
 
-#### [handle-callback-err](https://eslint.org/docs/rules/handle-callback-err)
-
-Always handle the err function parameter.
-
-```js
-// ✗ avoid
-function loadData(err, data) {
-  doSomething();
-}
-
-// ✓ ok
-function loadData(err, data) {
-  if (err) {
-    console.log(err.stack);
-  }
-  doSomething();
-}
-```
-
 #### [indent](https://eslint.org/docs/rules/indent)
 
 Use 4 spaces for identation by default.
