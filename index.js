@@ -77,10 +77,6 @@ module.exports = {
                 'after': true
             }
         ],
-        'handle-callback-err': [
-            'error',
-            '^(err|error)$'
-        ],
         'indent': [
             'error',
             4,
@@ -183,11 +179,10 @@ module.exports = {
                 'maxEOF': 0
             }
         ],
-        'no-negated-in-lhs': 'error',
+        'no-unsafe-negation': 'error',
         'no-new': 'error',
         'no-new-func': 'error',
         'no-new-object': 'error',
-        'no-new-require': 'error',
         'no-new-wrappers': 'error',
         'no-octal-escape': 'error',
         'no-proto': 'error',
