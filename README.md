@@ -533,18 +533,36 @@ var foo = 5;
 var bar = 3;
 ```
 
-#### [no-negated-in-lhs](https://eslint.org/docs/rules/no-negated-in-lhs)
+#### [no-unsafe-negation](https://eslint.org/docs/rules/no-unsafe-negation)
 
-This rule disallows negating the left operand in in expressions.
+This rule disallows negating the left operand of the following relational operators:
+
+- in operator
+- instanceof operator
 
 ```js
 // ✗ avoid
+/*eslint no-unsafe-negation: "error"*/
+
 if (!key in object) {
+  // operator precedence makes it equivalent to (!key) in object
+  // and type conversion makes it equivalent to (key ? "false" : "true") in object
+}
+
+if (!obj instanceof Ctor) {
+  // operator precedence makes it equivalent to (!obj) instanceof Ctor
+  // and it equivalent to always false since boolean values are not objects.
 }
 
 // ✓ ok
+/*eslint no-unsafe-negation: "error"*/
+
 if (!(key in object)) {
   // key is not in object
+}
+
+if (!(obj instanceof Ctor)) {
+  // obj is not an instance of Ctor
 }
 ```
 
